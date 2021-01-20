@@ -21,12 +21,12 @@ nbUrl = settings.NETBOX_URL
 nbToken = settings.NETBOX_TOKEN
 
 
-def update_package(path: str):
+def update_package(path=str):
     try:
         repo = Repo(path)
         if repo.remotes.origin.url.endswith('.git'):
             repo.remotes.origin.pull()
-            print(f"Pulled Repo {repo.remotes.origin.url}")
+            print(f'Pulled Repo {repo.remotes.origin.url}')
     except exc.InvalidGitRepositoryError:
         pass
 
